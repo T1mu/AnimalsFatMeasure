@@ -1,13 +1,16 @@
 ﻿// Cpig.cpp: 实现文件
-
+#include "Resource.h"
 #include "stdafx.h"
 #include "AnimalsFatMeasure.h"
 #include "Cpig.h"
 #include "afxdialogex.h"
+#include "INFOR.h"
 #include <opencv2/opencv.hpp>
 
-using namespace cv;
 
+
+using namespace cv;
+using namespace std;
 // Cpig 对话框
 
 IMPLEMENT_DYNAMIC(Cpig, CDialogEx)
@@ -54,11 +57,8 @@ static void onMouse(int event, int x, int y, int, void*)
 	}
 	else if (CV_EVENT_LBUTTONUP == event && g_rect_tl != Point(x, y)) {
 		hp_mat(Rect(g_rect_tl, Point(x, y))).copyTo(g_img_sub);
-		
 		cv::imwrite("timrow.png", g_img_sub);
-
 		imshow("sub image", g_img_sub);
-
 		g_is_rect_inited = false;
 	}
 }
@@ -79,12 +79,19 @@ void Cpig::OnBnClickedImport1()
 			AfxMessageBox(_T("所选文件为空"));
 		}
 		else {
-
-
 			std::string hp_string = CStringA(hP);
 			hp_mat = imread(hp_string);
 			imshow("view", hp_mat);
 			setMouseCallback(g_window_name, onMouse, 0);
+
+
+			INFOR  *dlg = new INFOR;
+			dlg->Create(IDD_Infor, this);
+			dlg->ShowWindow(SW_SHOW);
+
+			//Result res = numberIdenti(hp_string);				//获取识别信息
+			//GetDlgItem(IDC_STATIC)->SetWindowText(res.mianji);	//赋值面积
+			//GetDlgItem(IDC_EDIT3)->SetWindowText(res.houdu);	//赋值厚度
 		}
 	}
 }

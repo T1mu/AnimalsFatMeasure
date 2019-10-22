@@ -189,6 +189,7 @@
     <ClInclude Include="AnimalsFatMeasure.h" />
     <ClInclude Include="AnimalsFatMeasureDlg.h" />
     <ClInclude Include="Cpig.h" />
+    <ClInclude Include="INFOR.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="AnimalsFatMeasure.cpp" />
     <ClCompile Include="AnimalsFatMeasureDlg.cpp" />
     <ClCompile Include="Cpig.cpp" />
+    <ClCompile Include="INFOR.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
